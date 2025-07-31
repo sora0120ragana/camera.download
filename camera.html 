@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>カメラ起動</title>
+  </head>
+  <body>
+    <h1>カメラ映像</h1>
+    <video id="video" autoplay playsinline width="100%"></video>
+    <script>
+      navigator.mediaDevices.getUserMedia({ video: true })
+        .then(stream => {
+          document.getElementById('video').srcObject = stream;
+        })
+        .catch(err => {
+          console.error("カメラエラー:", err);
+        });
+    </script>
+  </body>
+</html>
